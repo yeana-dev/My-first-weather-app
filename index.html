@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&family=Barlow:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="formGroupExampleInput"
+          placeholder="Search City"
+        />
+        <li class="c-f">°C / °F</li>
+      </div>
+      <h1 class="heading">Houston</h1>
+      <div class="heading" id="timeDate">Time // Day, Date, Month, Year, </div>
+      <img src="images/partly-cloudy.svg" class="weather-image" />
+      <div class="bottom">50°</div>
+
+      <div class="row row-cols-2">
+        <div class="col">
+          <div id="humidity">
+            <div class="hum-a"><b>Humidity</b></div>
+            <div class="hum-b">30%</div>
+          </div>
+        </div>
+        <div class="col">
+          <div id="precipitation">
+            <div class="prec-a"><b>Precipitation</b></div>
+            <div class="prec-b">30%</div>
+          </div>
+        </div>
+        <div class="col">
+          <div id="wind">
+            <div class="wind-a"><b>Wind</b></div>
+            <div class="wind-b">5 mph</div>
+          </div>
+        </div>
+        <div class="col">
+          <div id="uv">
+            <div class="uv-a"><b>UV</b></div>
+            <div class="uv-b">5</div>
+          </div>
+        </div>
+      </div>
+      <ul class="forecast">
+        <li>
+        <ul class="tomorrow">
+          <li class="days">Tomorrow</li>
+          <li class="five-temp">20° / 10°</li>
+          <li class="five-prec">10%</li>
+        </ul>
+        </li>
+        <li>
+
+        <ul class="tuesday">
+          <li class="days">Tuesday</li>
+          <li class="five-temp">20° / 10°</li>
+          <li class="five-prec">10%</li>
+        </ul>
+</li><li>
+        <ul class="wednesday">
+          <li class="days">Wednesday</li>
+          <li class="five-temp">20° / 10°</li>
+          <li class="five-prec">10%</li>
+        </ul>
+</li><li>
+        <ul class="thursday">
+          <li class="days">Thursday</li>
+          <li class="five-temp">20° / 10°</li>
+          <li class="five-prec">10%</li>
+        </ul>
+</li><li>
+        <ul class="friday">
+          <li class="days">Friday</li>
+          <li class="five-temp">20° / 10°</li>
+          <li class="five-prec">10%</li>
+        </ul>
+        </li>
+        </ui>
+      </div>
+    </div>
+    <script src="weather-js.js">
+
+    </script>
+  </body>
+</html>
