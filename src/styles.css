@@ -5,6 +5,7 @@ body {
 footer {
   text-align: center;
   margin: 10px;
+  font-size: 12px;
 }
 
 .row {
@@ -20,9 +21,8 @@ footer {
 
 #bottomTemp {
   text-align: center;
-  font-weight: bolder;
-  font-size: 80px;
-  font-family: "Source Sans Pro", sans-serif;
+  font-size: 64px;
+  vertical-align: middle;
 }
 
 #humidity {
@@ -132,9 +132,9 @@ footer {
 }
 
 .weather-image {
-  display: block;
+  display: inline;
   margin: 0 auto;
-  width: 200px;
+  width: 100px;
 }
 
 .forecast {
