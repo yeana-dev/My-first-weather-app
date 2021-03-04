@@ -1,0 +1,156 @@
+body {
+  margin: 50px;
+}
+
+.row {
+  font-size: 18px;
+  margin: 20px;
+  padding: 20px;
+  font-weight: lighter;
+  border: none;
+  background-color: rgba(111, 111, 111, 0.1);
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+}
+
+#bottomTemp {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 80px;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+#humidity {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+#precipitation {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px 0 30px;
+}
+#wind {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+#uv {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px 0 30px;
+}
+
+.temp {
+  text-align: center;
+  font-size: 50px;
+
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bolder;
+  padding: 6px;
+}
+
+.feels-like {
+  font-weight: lighter;
+  font-size: 25px;
+  padding: 0;
+  font-style: italic;
+}
+
+.cloudy {
+  font-weight: lighter;
+  font-size: 25px;
+  padding: 7px;
+}
+
+.humidity {
+  top: 40px;
+  left: 150px;
+}
+
+.precipitation {
+  top: 45px;
+  left: 150px;
+}
+
+.wind {
+  top: -24px;
+  left: 450px;
+}
+
+.uv {
+  top: -19px;
+  left: 450px;
+}
+
+.c-f {
+  font-size: 15px;
+  text-align: right;
+  padding: 10px;
+  font-weight: bold;
+  color: #a0a0a0;
+}
+
+.mb-3 {
+  width: 500px;
+  display: block;
+  margin: 0 auto;
+  padding: 15px 0 0 0;
+}
+
+.form-control {
+  display: inline;
+  width: 70%;
+}
+
+.heading {
+  color: #000000;
+  font-size: 50px;
+  font-family: "Source Sans Pro", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+}
+
+#timeDate {
+  font-size: 20px;
+  text-transform: none;
+}
+
+.container {
+  background-image: linear-gradient(180deg, #fdfbfb 0%, #ebedee 100%);
+  border-radius: 20px;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1);
+  width: 800px;
+  padding: 10px;
+  margin-top: -30px;
+}
+
+.weather-image {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.forecast {
+  justify-content: center;
+}
+
+li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  display: block;
+}
+
+.forecast {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  font-weight: lighter;
+  border: none;
+  background-color: rgba(111, 111, 111, 0.1);
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+}

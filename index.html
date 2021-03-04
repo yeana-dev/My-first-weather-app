@@ -17,23 +17,29 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   </head>
 
   <body>
     <div class="container">
       <div class="mb-3">
+        <form id="cityForm">
         <input
-          type="text"
+          type="search"
           class="form-control"
-          id="formGroupExampleInput"
+          id="searchCity"
           placeholder="Search City"
         />
-        <li class="c-f">°C / °F</li>
+        <button type="button" class="btn btn-secondary">Search</button>
+        <button type="button" class="btn btn-secondary" id = "currentButton">📍</button>
+      </form>
+        <li class="c-f"><a href="#"><span id="c">°C</span></a> / <a href="#"><span id="f">°F</span></a></li>
       </div>
-      <h1 class="heading">Houston</h1>
+      <h1 class="heading" id="city">Houston</h1>
       <div class="heading" id="timeDate">Time // Day, Date, Month, Year, </div>
       <img src="images/partly-cloudy.svg" class="weather-image" />
-      <div class="bottom">50°</div>
+      <div id="bottomTemp">50°</div>
 
       <div class="row row-cols-2">
         <div class="col">
@@ -98,8 +104,6 @@
         </ui>
       </div>
     </div>
-    <script src="weather-js.js">
-
-    </script>
+    <script src="weather-js.js"></script>
   </body>
 </html>
