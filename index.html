@@ -33,41 +33,50 @@
         />
         <button type="button" class="btn btn-secondary">Search</button>
         <button type="button" class="btn btn-secondary" id = "currentButton">📍</button>
-      </form>
-        <li class="c-f"><a href="#"><span id="c">°C</span></a> / <a href="#"><span id="f">°F</span></a></li>
+      </form> 
       </div>
-      <h1 class="heading" id="city">Houston</h1>
-      <div class="heading" id="timeDate">Time // Day, Date, Month, Year, </div>
-      <img src="images/sunny.png" class="weather-image" />
+      <div class="row">
+        <div class="col">
+          <h1 class="heading" id="city">Houston</h1>
+            <div class="heading" id="timeDate">
+              Time // Day, Date, Month, Year, </div>
+          <img src="images/sunny.png" class="weather-image" />
       <span id="bottomTemp">50°</span>
+        </div>
+      
 
-      <div class="row row-cols-2">
-        <div class="col">
-          <div id="humidity">
-            <div class="hum-a"><b>Humidity</b></div>
-            <div class="hum-b">30%</div>
+      
+      
+        <div class="col" id="info">
+          <div class="col" >
+            <div id="humidity">
+              <div class="hum-a"><b>Humidity</b></div>
+              <div class="hum-b">30%</div>
+            </div>
           </div>
-        </div>
-        <div class="col">
-          <div id="precipitation">
-            <div class="prec-a"><b>Precipitation</b></div>
-            <div class="prec-b">30%</div>
+          <div class="col">
+            <div id="precipitation">
+              <div class="prec-a"><b>Precipitation</b></div>
+              <div class="prec-b">30%</div>
+            </div>
           </div>
-        </div>
-        <div class="col">
-          <div id="wind">
-            <div class="wind-a"><b>Wind</b></div>
-            <div class="wind-b">5 mph</div>
+          <div class="col">
+            <div id="wind">
+              <div class="wind-a"><b>Wind</b></div>
+              <div class="wind-b">5 mph</div>
+            </div>
           </div>
-        </div>
         <div class="col">
           <div id="uv">
             <div class="uv-a"><b>UV</b></div>
             <div class="uv-b">5</div>
           </div>
         </div>
+        </div>
+      
       </div>
-      <ul class="forecast">
+      
+    <ul class="forecast">
         <li>
         <ul class="tomorrow">
           <li class="days">Tomorrow</li>
@@ -105,6 +114,12 @@
       </div>
       <footer><a href="https://github.com/yeana-dev/My-first-weather-app" target="__blank">Open-source code</a> by Yeana Cho 💜</footer>
     </div>
+    </div>
+    
+    </div>
+
+
+      
     
     <script src="weather-js.js"></script>
   </body>
