@@ -23,60 +23,64 @@
 
   <body>
     <div class="container">
-      <div class="mb-3">
-        <form id="cityForm">
-        <input
-          type="search"
-          class="form-control"
-          id="searchCity"
-          placeholder="Search City"
-        />
-        <button type="button" class="btn btn-secondary">Search</button>
-        <button type="button" class="btn btn-secondary" id = "currentButton">📍</button>
-      </form> 
+
+      <div class="mb-3"> 
+        <form id="cityForm"> 
+        <input type="search" class="form-control" id="searchCity" placeholder="Search City" />
+          <button type="button" class="btn btn-secondary">Search</button>
+          <button type="button" class="btn btn-secondary" id = "currentButton">📍</button>
+        </form> 
       </div>
+
+
       <div class="row">
-        <div class="col">
+
+        <div class="col"> 
           <h1 class="heading" id="city">Houston</h1>
             <div class="heading" id="timeDate">
-              Time // Day, Date, Month, Year, </div>
-          <img src="images/sunny.png" class="weather-image" />
-      <span id="bottomTemp">50°</span>
+              Times goes here.</div>
+              <span id="condition">Condition</span>
+            <div id="bottomSection">
+              <img src="images/sunny.png" class="weather-image" />
+              <span id="bottomTemp">50°</span>
+          </div>
         </div>
-      
 
-      
-      
         <div class="col" id="info">
+
+          <div class="col">
+
+            <div id="highlow">
+              <span id="high-a">↑ High </span><span id="high-b"></span> | 
+              <span id="low-a">↓ Low </span><span id="low-b"></span>
+            </div>
+
+            <div id="feelsLike">
+              <div id="feelslike-a"><b>Feels Like</b></div>
+              <div id="feelslike-b">temp</div>
+            </div>
+          </div>
+
           <div class="col" >
             <div id="humidity">
-              <div class="hum-a"><b>Humidity</b></div>
-              <div class="hum-b">30%</div>
+              <div id="hum-a"><b>Humidity</b></div>
+              <div id="hum-b">30%</div>
             </div>
           </div>
-          <div class="col">
-            <div id="precipitation">
-              <div class="prec-a"><b>Precipitation</b></div>
-              <div class="prec-b">30%</div>
-            </div>
-          </div>
+
           <div class="col">
             <div id="wind">
-              <div class="wind-a"><b>Wind</b></div>
-              <div class="wind-b">5 mph</div>
+              <div id="wind-a"><b>Wind</b></div>
+              <div id="wind-b">5 mph</div>
             </div>
           </div>
-        <div class="col">
-          <div id="uv">
-            <div class="uv-a"><b>UV</b></div>
-            <div class="uv-b">5</div>
-          </div>
-        </div>
+
         </div>
       
-      </div>
+      </div> 
       
-    <ul class="forecast">
+    <ul class="forecast"> 
+
         <li>
         <ul class="tomorrow">
           <li class="days">Tomorrow</li>
@@ -84,43 +88,51 @@
           <li class="five-prec">10%</li>
         </ul>
         </li>
-        <li>
 
-        <ul class="tuesday">
-          <li class="days">Tuesday</li>
-          <li class="five-temp">20° / 10°</li>
-          <li class="five-prec">10%</li>
-        </ul>
-</li><li>
-        <ul class="wednesday">
-          <li class="days">Wednesday</li>
-          <li class="five-temp">20° / 10°</li>
-          <li class="five-prec">10%</li>
-        </ul>
-</li><li>
-        <ul class="thursday">
-          <li class="days">Thursday</li>
-          <li class="five-temp">20° / 10°</li>
-          <li class="five-prec">10%</li>
-        </ul>
-</li><li>
-        <ul class="friday">
-          <li class="days">Friday</li>
-          <li class="five-temp">20° / 10°</li>
-          <li class="five-prec">10%</li>
-        </ul>
+        <li>
+          <ul class="tuesday">
+            <li class="days">Tuesday</li>
+            <li class="five-temp">20° / 10°</li>
+            <li class="five-prec">10%</li>
+          </ul>
         </li>
+
+        <li>
+          <ul class="wednesday">
+            <li class="days">Wednesday</li>
+            <li class="five-temp">20° / 10°</li>
+            <li class="five-prec">10%</li>
+          </ul>
+        </li>
+
+        <li>
+          <ul class="thursday">
+            <li class="days">Thursday</li>
+            <li class="five-temp">20° / 10°</li>
+            <li class="five-prec">10%</li>
+          </ul>
+        </li>
+
+        <li>
+          <ul class="friday">
+            <li class="days">Friday</li>
+            <li class="five-temp">20° / 10°</li>
+            <li class="five-prec">10%</li>
+          </ul>
+        </li>
+
         </ui>
       </div>
-      <footer><a href="https://github.com/yeana-dev/My-first-weather-app" target="__blank">Open-source code</a> by Yeana Cho 💜</footer>
+
+      <footer>
+        <a href="https://github.com/yeana-dev/My-first-weather-app" target="__blank">Open-source code</a> by Yeana Cho 💜
+      </footer>
+
+      </div>
     </div>
-    </div>
-    
     </div>
 
+    <script src="weather-js.js"></script> 
 
-      
-    
-    <script src="weather-js.js"></script>
   </body>
 </html>

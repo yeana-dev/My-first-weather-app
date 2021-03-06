@@ -10,15 +10,14 @@ footer {
 
 #info {
   display: block;
-  font-size: 20px;
-  margin: 35px;
-  padding: 15px;
+  font-size: 15px;
+  margin: 50px;
+  padding: 10px;
   font-weight: lighter;
   border: none;
   background-color: rgba(111, 111, 111, 0.1);
   border-radius: 20px;
   box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
-  width: 60%;
 }
 
 #bottomTemp {
@@ -27,25 +26,41 @@ footer {
   vertical-align: middle;
 }
 
+#condition {
+  padding: 0px 0px 0px 50px;
+  text-transform: capitalize;
+}
+
+#highlow {
+  text-align: center;
+  padding: 5px 0px 0px 0px;
+  font-size: 20px;
+}
+
+#high-a {
+  font-weight: bold;
+}
+
+#low-a {
+  font-weight: bold;
+}
+
+#feelsLike {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 30px 5px;
+}
+
 #humidity {
   display: flex;
   justify-content: space-between;
   padding: 0 30px 5px;
 }
-#precipitation {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 30px 5px 30px;
-}
+
 #wind {
   display: flex;
   justify-content: space-between;
   padding: 0 30px 5px;
-}
-#uv {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 30px 0 30px;
 }
 
 .temp {
@@ -53,39 +68,6 @@ footer {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: bolder;
   padding: 6px;
-}
-
-.feels-like {
-  font-weight: lighter;
-  font-size: 25px;
-  padding: 0;
-  font-style: italic;
-}
-
-.cloudy {
-  font-weight: lighter;
-  font-size: 25px;
-  padding: 7px;
-}
-
-.humidity {
-  top: 40px;
-  left: 150px;
-}
-
-.precipitation {
-  top: 45px;
-  left: 150px;
-}
-
-.wind {
-  top: -24px;
-  left: 450px;
-}
-
-.uv {
-  top: -19px;
-  left: 450px;
 }
 
 .mb-3 {
@@ -111,11 +93,11 @@ footer {
 }
 
 #city {
-  padding: 25px 0px 0px 50px;
+  padding: 20px 0px 0px 50px;
 }
 
 #timeDate {
-  font-size: 20px;
+  font-size: 15px;
   text-transform: none;
 }
 
