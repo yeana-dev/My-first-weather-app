@@ -42,8 +42,6 @@ citysearchInput.addEventListener("submit", citySearch);
 
 // api
 function currentWeather(event) {
-  event.preventDefault();
-
   let searchCity = document.querySelector("#searchCity");
   let headingCity = document.querySelector("#city");
 
@@ -56,7 +54,7 @@ function currentWeather(event) {
 }
 
 let search = document.querySelector("#cityForm");
-search.addEventListener("submit", currentWeather);
+search.addEventListener("click", currentWeather);
 
 function result(response) {
   let currentLocation = response.data.name;
@@ -105,5 +103,3 @@ function currentPosition() {
 
 let currentPositionButton = document.querySelector("#currentButton");
 currentPositionButton.addEventListener("click", currentPosition);
-
-currentWeather("Houston");
