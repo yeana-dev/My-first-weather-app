@@ -103,3 +103,7 @@ function currentPosition() {
 
 let currentPositionButton = document.querySelector("#currentButton");
 currentPositionButton.addEventListener("click", currentPosition);
+
+let apiKey = "e1bbbda7b1f75d2ab5d063a0f170a3e6";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=houston&units=imperial&appid=${apiKey}`;
+axios.get(apiUrl).then(result);
