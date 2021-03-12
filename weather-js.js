@@ -1,32 +1,3 @@
-// time and date
-
-// let currentTd = new Date();
-
-// let months = [
-//   "January",
-//   "February",
-//   "March",
-//   "April",
-//   "May",
-//   "June",
-//   "July",
-//   "August",
-//   "September",
-//   "November",
-//   "December",
-// ];
-
-// let today = days[currentTd.getDay()];
-// let date = currentTd.getDate();
-// let month = months[currentTd.getMonth()];
-// let hour = currentTd.getHours();
-// let min = currentTd.getMinutes();
-
-// let todayIs = `Last updated : ${today}, ${month} ${date} ${hour}:${min}`;
-
-// let timeDate = document.querySelector("#timeDate");
-// timeDate.innerHTML = `${todayIs}`;
-
 // time
 
 function formatDate(timestamp) {
@@ -103,6 +74,7 @@ function result(response) {
   let elementHigh = document.querySelector("#high-b");
   let elementLow = document.querySelector("#low-b");
   let elementTimedate = document.querySelector("#timeDate");
+  let elementWeatherImage = document.querySelector("#weather-image");
 
   selectHeading.innerHTML = `${currentLocation}`;
   selectTemperature.innerHTML = `${temperature}°`;
@@ -113,6 +85,10 @@ function result(response) {
   elementHigh.innerHTML = `${selectHigh}°`;
   elementLow.innerHTML = `${selectLow}°`;
   elementTimedate.innerHTML = formatDate(response.data.dt * 1000);
+  elementWeatherImage.setAttribute(
+    "src",
+    `images/${response.data.weather[0].icon}.png`
+  );
 }
 
 // Geolocation

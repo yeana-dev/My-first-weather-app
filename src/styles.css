@@ -110,7 +110,7 @@ footer {
   margin-top: -30px;
 }
 
-.weather-image {
+#weather-image {
   display: inline;
   margin: 0 0 0 30px;
   width: 100px;
