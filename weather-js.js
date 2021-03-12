@@ -1,32 +1,60 @@
 // time and date
-let currentTd = new Date();
 
-let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+// let currentTd = new Date();
 
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "November",
-  "December",
-];
+// let months = [
+//   "January",
+//   "February",
+//   "March",
+//   "April",
+//   "May",
+//   "June",
+//   "July",
+//   "August",
+//   "September",
+//   "November",
+//   "December",
+// ];
 
-let today = days[currentTd.getDay()];
-let date = currentTd.getDate();
-let month = months[currentTd.getMonth()];
-let hour = currentTd.getHours();
-let min = currentTd.getMinutes();
+// let today = days[currentTd.getDay()];
+// let date = currentTd.getDate();
+// let month = months[currentTd.getMonth()];
+// let hour = currentTd.getHours();
+// let min = currentTd.getMinutes();
 
-let todayIs = `Last updated : ${today}, ${month} ${date} ${hour}:${min}`;
+// let todayIs = `Last updated : ${today}, ${month} ${date} ${hour}:${min}`;
 
-let timeDate = document.querySelector("#timeDate");
-timeDate.innerHTML = `${todayIs}`;
+// let timeDate = document.querySelector("#timeDate");
+// timeDate.innerHTML = `${todayIs}`;
+
+// time
+
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+
+  if (hours < 10) {
+    hours = `${hours}`;
+  }
+
+  let minutes = date.getMinutes();
+
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `Last updated : ${day} ${hours}:${minutes}`;
+}
 
 // search engine
 
@@ -74,6 +102,7 @@ function result(response) {
   let elementWind = document.querySelector("#wind-b");
   let elementHigh = document.querySelector("#high-b");
   let elementLow = document.querySelector("#low-b");
+  let elementTimedate = document.querySelector("#timeDate");
 
   selectHeading.innerHTML = `${currentLocation}`;
   selectTemperature.innerHTML = `${temperature}°`;
@@ -83,6 +112,7 @@ function result(response) {
   elementWind.innerHTML = `${selectWind} mph`;
   elementHigh.innerHTML = `${selectHigh}°`;
   elementLow.innerHTML = `${selectLow}°`;
+  elementTimedate.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 // Geolocation
