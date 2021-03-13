@@ -89,6 +89,7 @@ function result(response) {
     "src",
     `images/${response.data.weather[0].icon}.png`
   );
+  elementWeatherImage.setAttribute("alt", response.data.weather[0].description);
 }
 
 // Geolocation
