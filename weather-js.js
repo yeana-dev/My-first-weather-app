@@ -53,7 +53,7 @@ function currentWeather(event) {
 }
 
 let search = document.querySelector("#cityForm");
-search.addEventListener("click", currentWeather);
+search.addEventListener("submit", currentWeather);
 
 function result(response) {
   let currentLocation = response.data.name;
