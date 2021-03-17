@@ -27,34 +27,6 @@ function formatDate(timestamp) {
   return `Last updated : ${day} ${hours}:${minutes}`;
 }
 
-// search engine
-
-function citySearch(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#searchCity");
-  let heading = document.querySelector("#city");
-  heading.innerHTML = cityInput.value;
-}
-
-let citysearchInput = document.querySelector("#cityForm");
-citysearchInput.addEventListener("submit", citySearch);
-
-// api
-function currentWeather(event) {
-  let searchCity = document.querySelector("#searchCity");
-  let headingCity = document.querySelector("#city");
-
-  headingCity.innerHTML = `${searchCity.value}`;
-
-  let apiKey = "e1bbbda7b1f75d2ab5d063a0f170a3e6";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity.value}&units=imperial&appid=${apiKey}`;
-
-  axios.get(apiUrl).then(result);
-}
-
-let search = document.querySelector("#cityForm");
-search.addEventListener("submit", currentWeather);
-
 function result(response) {
   let currentLocation = response.data.name;
   let temperature = Math.round(response.data.main.temp);
@@ -92,6 +64,22 @@ function result(response) {
   elementWeatherImage.setAttribute("alt", response.data.weather[0].description);
 }
 
+// search engine
+
+function citySearch(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#searchCity");
+  currentWeather(cityInput.value);
+}
+
+// api
+function currentWeather(city) {
+  let apiKey = "e1bbbda7b1f75d2ab5d063a0f170a3e6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+
+  axios.get(apiUrl).then(result);
+}
+
 // Geolocation
 
 function position(position) {
@@ -111,6 +99,7 @@ function currentPosition() {
 let currentPositionButton = document.querySelector("#currentButton");
 currentPositionButton.addEventListener("click", currentPosition);
 
-let apiKey = "e1bbbda7b1f75d2ab5d063a0f170a3e6";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=houston&units=imperial&appid=${apiKey}`;
-axios.get(apiUrl).then(result);
+currentWeather("houston");
+
+let form = document.querySelector("#cityForm");
+form.addEventListener("submit", citySearch);
