@@ -143,3 +143,9 @@ ul {
   border-radius: 20px;
   box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
 }
+
+.units {
+  position: relative;
+  top: -18px;
+  left: 5px;
+}

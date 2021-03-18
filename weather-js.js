@@ -27,6 +27,7 @@ function formatDate(timestamp) {
   return `Last updated : ${day} ${hours}:${minutes}`;
 }
 
+// innerHTML
 function result(response) {
   let currentLocation = response.data.name;
   let temperature = Math.round(response.data.main.temp);
@@ -36,6 +37,8 @@ function result(response) {
   let selectWind = Math.round(response.data.wind.speed);
   let selectHigh = Math.round(response.data.main.temp_max);
   let selectLow = Math.round(response.data.main.temp_min);
+
+  fahrenheitTemperature = response.data.main.temp;
 
   let selectHeading = document.querySelector("#city");
   let selectTemperature = document.querySelector("#bottomTemp");
@@ -49,7 +52,7 @@ function result(response) {
   let elementWeatherImage = document.querySelector("#weather-image");
 
   selectHeading.innerHTML = `${currentLocation}`;
-  selectTemperature.innerHTML = `${temperature}°`;
+  selectTemperature.innerHTML = Math.round(fahrenheitTemperature);
   elementCondition.innerHTML = `${selectCondition}`;
   elementHumidity.innerHTML = `${selectHumidity}%`;
   elementFeelslike.innerHTML = `${selectFeelslike}°`;
@@ -65,7 +68,6 @@ function result(response) {
 }
 
 // search engine
-
 function citySearch(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#searchCity");
@@ -81,7 +83,6 @@ function currentWeather(city) {
 }
 
 // Geolocation
-
 function position(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -96,6 +97,21 @@ function currentPosition() {
   navigator.geolocation.getCurrentPosition(position);
 }
 
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let ftocConvert = (fahrenheitTemperature - 32) * (5 / 9);
+  let tempElement = document.querySelector("#bottomTemp");
+  tempElement.innerHTML = Math.round(ftocConvert);
+}
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#bottomTemp");
+  tempElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitTemperature = null;
+
 let currentPositionButton = document.querySelector("#currentButton");
 currentPositionButton.addEventListener("click", currentPosition);
 
@@ -103,3 +119,11 @@ currentWeather("houston");
 
 let form = document.querySelector("#cityForm");
 form.addEventListener("submit", citySearch);
+
+// celcius and fahrenheit
+
+let celsiusLink = document.querySelector("#c");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+let fahrenheitLink = document.querySelector("#f");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
