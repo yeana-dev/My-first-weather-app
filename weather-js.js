@@ -100,12 +100,16 @@ function currentPosition() {
 function displayCelsiusTemperature(event) {
   event.preventDefault();
   let ftocConvert = (fahrenheitTemperature - 32) * (5 / 9);
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   let tempElement = document.querySelector("#bottomTemp");
   tempElement.innerHTML = Math.round(ftocConvert);
 }
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
   let tempElement = document.querySelector("#bottomTemp");
   tempElement.innerHTML = Math.round(fahrenheitTemperature);
 }
