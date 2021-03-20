@@ -30,15 +30,14 @@ function formatDate(timestamp) {
 // innerHTML
 function result(response) {
   let currentLocation = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
   let selectCondition = response.data.weather[0].description;
   let selectHumidity = response.data.main.humidity;
   let selectFeelslike = Math.round(response.data.main.feels_like);
   let selectWind = Math.round(response.data.wind.speed);
-  let selectHigh = Math.round(response.data.main.temp_max);
-  let selectLow = Math.round(response.data.main.temp_min);
 
   fahrenheitTemperature = response.data.main.temp;
+  fahrenheitHighTemperature = Math.round(response.data.main.temp_max);
+  fahrenheitLowTemperature = Math.round(response.data.main.temp_min);
 
   let selectHeading = document.querySelector("#city");
   let selectTemperature = document.querySelector("#bottomTemp");
@@ -57,8 +56,8 @@ function result(response) {
   elementHumidity.innerHTML = `${selectHumidity}%`;
   elementFeelslike.innerHTML = `${selectFeelslike}°`;
   elementWind.innerHTML = `${selectWind} mph`;
-  elementHigh.innerHTML = `${selectHigh}°`;
-  elementLow.innerHTML = `${selectLow}°`;
+  elementHigh.innerHTML = `${fahrenheitHighTemperature}°`;
+  elementLow.innerHTML = `${fahrenheitLowTemperature}°`;
   elementTimedate.innerHTML = formatDate(response.data.dt * 1000);
   elementWeatherImage.setAttribute(
     "src",
@@ -104,6 +103,14 @@ function displayCelsiusTemperature(event) {
   celsiusLink.classList.add("active");
   let tempElement = document.querySelector("#bottomTemp");
   tempElement.innerHTML = Math.round(ftocConvert);
+
+  let ftocConvertHigh = (fahrenheitHighTemperature - 32) * (5 / 9);
+  let highTempElement = document.querySelector("#high-b");
+  highTempElement.innerHTML = Math.round(ftocConvertHigh);
+
+  let ftocConvertLow = (fahrenheitLowTemperature - 32) * (5 / 9);
+  let lowTempElement = document.querySelector("#low-b");
+  lowTempElement.innerHTML = Math.round(ftocConvertLow);
 }
 
 function displayFahrenheitTemperature(event) {
@@ -112,14 +119,16 @@ function displayFahrenheitTemperature(event) {
   celsiusLink.classList.remove("active");
   let tempElement = document.querySelector("#bottomTemp");
   tempElement.innerHTML = Math.round(fahrenheitTemperature);
+  let highTempElement = document.querySelector("#high-b");
+  highTempElement.innerHTML = Math.round(fahrenheitHighTemperature);
+  let lowTempElement = document.querySelector("#low-b");
+  lowTempElement.innerHTML = Math.round(fahrenheitLowTemperature);
 }
 
 let fahrenheitTemperature = null;
 
 let currentPositionButton = document.querySelector("#currentButton");
 currentPositionButton.addEventListener("click", currentPosition);
-
-currentWeather("houston");
 
 let form = document.querySelector("#cityForm");
 form.addEventListener("submit", citySearch);
@@ -131,3 +140,5 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 let fahrenheitLink = document.querySelector("#f");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+currentWeather("houston");
