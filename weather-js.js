@@ -32,7 +32,7 @@ function result(response) {
   let currentLocation = response.data.name;
   let selectCondition = response.data.weather[0].description;
   let selectHumidity = response.data.main.humidity;
-  let selectWind = Math.round(response.data.wind.speed);
+  windSpeedMph = Math.round(response.data.wind.speed);
 
   fahrenheitTemperature = response.data.main.temp;
   fahrenheitHighTemperature = Math.round(response.data.main.temp_max);
@@ -55,7 +55,7 @@ function result(response) {
   elementCondition.innerHTML = `${selectCondition}`;
   elementHumidity.innerHTML = `${selectHumidity}%`;
   elementFeelslike.innerHTML = `${fahrenheitFeelsLikeTemp}°`;
-  elementWind.innerHTML = `${selectWind} mph`;
+  elementWind.innerHTML = `${windSpeedMph} mph`;
   elementHigh.innerHTML = `${fahrenheitHighTemperature}°`;
   elementLow.innerHTML = `${fahrenheitLowTemperature}°`;
   elementTimedate.innerHTML = formatDate(response.data.dt * 1000);
@@ -115,6 +115,10 @@ function displayCelsiusTemperature(event) {
   let ftocConvertFeelsLike = (fahrenheitFeelsLikeTemp - 32) * (5 / 9);
   let feelsLikeTempElement = document.querySelector("#feelslike-b");
   feelsLikeTempElement.innerHTML = `${Math.round(ftocConvertFeelsLike)}°`;
+
+  let convertWindSpeedKph = windSpeedMph * 1.609;
+  let windSpeedElement = document.querySelector("#wind-b");
+  windSpeedElement.innerHTML = `${Math.round(convertWindSpeedKph)} kph`;
 }
 
 function displayFahrenheitTemperature(event) {
@@ -133,6 +137,9 @@ function displayFahrenheitTemperature(event) {
 
   let feelsLikeElement = document.querySelector("#feelslike-b");
   feelsLikeElement.innerHTML = `${Math.round(fahrenheitFeelsLikeTemp)}°`;
+
+  let windSpeedElement = document.querySelector("#wind-b");
+  windSpeedElement.innerHTML = `${Math.round(windSpeedMph)} mph`;
 }
 
 let fahrenheitTemperature = null;
