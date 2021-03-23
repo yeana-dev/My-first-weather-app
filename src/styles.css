@@ -8,6 +8,21 @@ footer {
   font-size: 12px;
 }
 
+h3 {
+  font-size: 15px;
+  padding-top: 5px;
+}
+
+#forecast {
+  text-align: center;
+  border: none;
+  background-color: rgba(111, 111, 111, 0.1);
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 10%);
+  margin: 20px 40px 40px 40px;
+  padding: 10px;
+}
+
 #info {
   display: block;
   font-size: 15px;
@@ -17,7 +32,7 @@ footer {
   border: none;
   background-color: rgba(111, 111, 111, 0.1);
   border-radius: 20px;
-  box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 10%);
 }
 
 #bottomTemp {
@@ -159,4 +174,13 @@ ul {
 
 .units .active:hover {
   text-decoration: none;
+}
+
+#forecast-icon {
+  width: 70px;
+}
+
+#forecast-temp {
+  font-weight: lighter;
+  padding-bottom: 5px;
 }
