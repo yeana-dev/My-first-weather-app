@@ -2,6 +2,21 @@
 
 function formatDate(timestamp) {
   let date = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `Last updated : ${day} ${formatHours(timestamp)}`;
+}
+
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
   let hours = date.getHours();
 
   if (hours < 10) {
@@ -14,17 +29,31 @@ function formatDate(timestamp) {
     minutes = `0${minutes}`;
   }
 
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[date.getDay()];
-  return `Last updated : ${day} ${hours}:${minutes}`;
+  return `${hours}:${minutes}`;
+}
+
+// hourly forecast
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+          <div class="col-2">
+            <h3 class="hour">
+              ${formatHours(forecast.dt * 1000)}
+            </h3>
+            <img src="images/${
+              forecast.weather[0].icon
+            }.png" id = "forecast-icon">
+            <div id="forecast-temp">
+              ${Math.round(forecast.main.temp)}°         
+            </div>
+          </div>
+  `;
+  }
 }
 
 // innerHTML
@@ -79,6 +108,9 @@ function currentWeather(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
 
   axios.get(apiUrl).then(result);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 // Geolocation
