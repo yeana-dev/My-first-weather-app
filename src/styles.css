@@ -6,6 +6,7 @@ footer {
   text-align: center;
   margin: 10px;
   font-size: 12px;
+  padding: 20px;
 }
 
 h3 {
@@ -99,7 +100,7 @@ h3 {
 
 .heading {
   color: #000000;
-  font-size: 50px;
+  font-size: 40px;
   font-family: "Source Sans Pro", sans-serif;
   text-transform: uppercase;
   text-align: left;
@@ -122,7 +123,7 @@ h3 {
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1);
   width: 800px;
   padding: 10px;
-  margin-top: -30px;
+  margin-top: 100px;
 }
 
 #weather-image {
@@ -131,39 +132,12 @@ h3 {
   width: 100px;
 }
 
-.forecast {
-  justify-content: center;
-}
-
-li {
-  list-style: none;
-  padding: 0px;
-  margin: 0px;
-  text-align: center;
-  display: block;
-}
-
-ul {
-  padding-left: 0rem;
-}
-
-.forecast {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  margin: 20px;
-  font-weight: lighter;
-  border: none;
-  background-color: rgba(111, 111, 111, 0.1);
-  border-radius: 20px;
-  box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
-}
-
 .units {
   position: relative;
   top: -18px;
   left: 5px;
   text-decoration: none;
+  color: #000000;
 }
 
 .units .active {
@@ -180,7 +154,7 @@ ul {
   width: 70px;
 }
 
-#forecast-temp {
+.forecast-temp {
   font-weight: lighter;
   padding-bottom: 5px;
 }

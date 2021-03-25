@@ -35,11 +35,13 @@ function formatHours(timestamp) {
 // hourly forecast
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
+
   forecastElement.innerHTML = null;
   let forecast = null;
 
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
+    fahrenheitForecast = forecast.main.temp;
     forecastElement.innerHTML += `
           <div class="col-2">
             <h3 class="hour">
@@ -49,9 +51,8 @@ function displayForecast(response) {
               forecast.weather[0].icon
             }.png" id = "forecast-icon">
             <div id="forecast-temp">
-              ${Math.round(forecast.main.temp)}°         
+              ${Math.round(fahrenheitForecast)}°         
             </div>
-          </div>
   `;
   }
 }
@@ -128,6 +129,7 @@ function currentPosition() {
   navigator.geolocation.getCurrentPosition(position);
 }
 
+// converting fahrenheit to celsius
 function displayCelsiusTemperature(event) {
   event.preventDefault();
   let ftocConvert = (fahrenheitTemperature - 32) * (5 / 9);
@@ -151,8 +153,13 @@ function displayCelsiusTemperature(event) {
   let convertWindSpeedKph = windSpeedMph * 1.609;
   let windSpeedElement = document.querySelector("#wind-b");
   windSpeedElement.innerHTML = `${Math.round(convertWindSpeedKph)} kph`;
+
+  let convertForecast = (fahrenheitForecast - 32) * (5 / 9);
+  let forecastElement = document.querySelector("#forecast-temp");
+  forecastElement.innerHTML = `${Math.round(convertForecast)}`;
 }
 
+// converting back to fahrenheit
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   fahrenheitLink.classList.add("active");
@@ -172,6 +179,9 @@ function displayFahrenheitTemperature(event) {
 
   let windSpeedElement = document.querySelector("#wind-b");
   windSpeedElement.innerHTML = `${Math.round(windSpeedMph)} mph`;
+
+  let forecastElement = document.querySelector("#forecast-temp");
+  forecastElement.innerHTML = `${Math.round(fahrenheitForecast)}`;
 }
 
 let fahrenheitTemperature = null;
