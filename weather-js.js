@@ -35,10 +35,8 @@ function formatHours(timestamp) {
 // hourly forecast
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-
   forecastElement.innerHTML = null;
   let forecast = null;
-
   for (let index = 0; index < 6; index++) {
     forecast = response.data.list[index];
     fahrenheitForecast = forecast.main.temp;
@@ -50,8 +48,10 @@ function displayForecast(response) {
             <img src="images/${
               forecast.weather[0].icon
             }.png" id = "forecast-icon">
-            <div id="forecast-temp">
-              ${Math.round(fahrenheitForecast)}°         
+            <div>
+              <span class="forecast-temp">${Math.round(
+                fahrenheitForecast
+              )}</span>°         
             </div>
   `;
   }
@@ -154,9 +154,16 @@ function displayCelsiusTemperature(event) {
   let windSpeedElement = document.querySelector("#wind-b");
   windSpeedElement.innerHTML = `${Math.round(convertWindSpeedKph)} kph`;
 
-  let convertForecast = (fahrenheitForecast - 32) * (5 / 9);
-  let forecastElement = document.querySelector("#forecast-temp");
-  forecastElement.innerHTML = `${Math.round(convertForecast)}`;
+  let forecastTemp = document.querySelectorAll(".forecast-temp");
+  forecastTemp.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // convert to Celsius
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+  // to avoid double conversion
+  celsiusLink.removeEventListener("click", displayCelsiusTemperature);
+  fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 }
 
 // converting back to fahrenheit
@@ -180,8 +187,16 @@ function displayFahrenheitTemperature(event) {
   let windSpeedElement = document.querySelector("#wind-b");
   windSpeedElement.innerHTML = `${Math.round(windSpeedMph)} mph`;
 
-  let forecastElement = document.querySelector("#forecast-temp");
-  forecastElement.innerHTML = `${Math.round(fahrenheitForecast)}`;
+  let forecastTemp = document.querySelectorAll(".forecast-temp");
+  forecastTemp.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // convert to Fahrenheit
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+  // to avoid double conversion
+  celsiusLink.addEventListener("click", displayCelsiusTemperature);
+  fahrenheitLink.removeEventListener("click", displayFahrenheitTemperature);
 }
 
 let fahrenheitTemperature = null;
